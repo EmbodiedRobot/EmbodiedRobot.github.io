@@ -3,14 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="">
-  <meta name="keywords" content="">
+        content="Empowering Embodied Manipulation: A Bimanual-Mobile Robot Manipulation Dataset for Household Tasks">
+  <meta name="keywords" content="robot manipulation, Embodied AI">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>BRMData: A Bimanual-Mobile Robot Manipulation Dataset</title>
+  <title>Empowering Embodied Manipulation: A Bimanual-Mobile Robot Manipulation Dataset for Household Tasks</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="./static/css/index.css">
@@ -37,53 +35,191 @@
     type="text/javascript" id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
   </script>
+
+  <style>
+  .custom-button {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin-right: 10px; /* 调整按钮之间的间距 */
+    border-radius: 30px;
+    overflow: hidden; /* 确保内容不会溢出 */
+  }
+  
+  .custom-button .button-logo {
+    width: 30px; /* 调整 logo 的宽度以适应按钮 */
+    height: auto;
+    margin-right: 10px; /* 调整 logo 与文本之间的间距 */
+    /* border-radius: 30px; */
+    border-radius: 50%; /* 确保 logo 是圆的 */
+    object-fit: contain; /* 确保图片在其容器内适当缩放 */
+  }
+  </style>
+  
+
 </head>
 <body>
 
 
-<section class="hero">
-  <div class="hero-body">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="content">
+      <!-- <div class="columns is-centered"> -->
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Empowering Embodied Manipulation: A Bimanual-Mobile Robot Manipulation Dataset for Household Tasks</h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block">
-                JD Explore Academy
-            </span>
+            <!-- <span class="author-block"><strong>JD Explore Academy</strong></span> -->
+            <p style="text-align: center; margin-top: 10px; font-size: 30px;"><strong>JD Explore Academy</strong></p>
           </div>
-          <div class="is-size-5 publication-1">
-            <span class="author-block">
-            </span>
-          </div>
+          <!-- <div class="is-size-5 publication-authors">
+            <img src="asserts/jdlogo.png" alt="Stanford University" style="width: 250px; height: auto; margin-top: 20px;">
+          </div> -->
+          <div class="buttons are-medium is-centered" style="margin-top: 20px;">
+            <a href="http://box.jd.com/sharedInfo/1147DC284DDAEE91DC759E209F58DD60" class="button custom-button">
+              <img src="asserts/datasetlogo.png" alt="Logo" class="button-logo">
+              Datasets
+            </a>
+            <a href="https://www.jdcloud.com/cn/pages/explore-JDManiData?hideHeader=true" class="button custom-button">
+              <img src="asserts/homelogo.png" alt="Logo" class="button-logo">
+              Home
+            </a>
+            <a href="./main.html" class="button custom-button">
+              <img src="asserts/paperlogo.png" alt="Logo" class="button-logo">
+              Paper
+            </a>
+            <a href="./main.html" class="button custom-button">
+              <img src="asserts/codelogo.png" alt="Logo" class="button-logo">
+              Code
+            </a>
+            <a href="./LICENSE" class="button custom-button">
+              <img src="asserts/paperlogo.png" alt="Logo" class="button-logo">
+              License
+            </a>
+          </div>   
+          <div class="content has-text-justified">
+              <video download controls autoplay loop muted playsinline 
+                src="./asserts/overview.mp4" 
+                poster="./asserts/loading-icon.gif" 
+                style="border: 5px solid #bbb; border-radius: 20px; margin: 0.6%;">
+              </video>
+          </div>       
         </div>
-      </div>
+      <!-- </div> -->
     </div>
   </div>
 </section>
 
 <section class="section">
 <div class="container is-max-desktop">
-
 <div class="content">
     <!-- Using HTML to center the abstract -->
     <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-            <img src="static/image/overview.jpg" alt="Descriptive Alt Text" style="width:100%; height:auto;">
-            <h2>Abstract</h2>
+            <!-- <h2>Abstract</h2> -->
+            <h2 class="title is-2" style="text-align: center;">Abstract</h2>
             <div class="content has-text-justified">
-As Embodied AI advances, the deployment of robots with dual-arm and mobile capabilities is increasingly enhancing the complexity and efficiency of interactions in household environments.
-Despite their potential, the development of these robots is constrained by the lack of dual-arm robot manipulation datasets that reflect the intricacy of real-world household tasks. 
-To address this gap, we introduce <strong>BRMData</strong>, a <strong>B</strong>imanual-mobile <strong>R</strong>obot <strong>M</strong>anipulation <strong>Data</strong>set tailored for household applications. 
-This dataset is collected using an advanced mobile robot manipulation platform equipped with RGBD sensing and a teleoperation system featuring four collaborative robot arms, enabling a wide range of manipulation tasks. 
-We have captured data for 10 different household tasks, including single-arm, dual-arm, and mobile manipulations, with progressively increasing difficulty and layered task structures. 
-BRMData encompasses human-robot interactions and dynamic mobile manipulations, closely simulating real-world household applications. With multi-view and depth-sensing data, BRMData aims to drive the development of adaptable and versatile robot manipulation technologies. 
-This dataset is now open-sourced and available at this <a href="https://www.jdcloud.com/cn/pages/explore-JDManiData?hideHeader=true" target="_blank">link</a>, contributing further to advancements in the field.
+              As Embodied AI advances, it increasingly enables robots to handle the complexity of household manipulation tasks more effectively.  
+              However, the application of robots in these settings remains limited due to the scarcity of bimanual-mobile robot manipulation datasets. 
+              Existing datasets either focus solely on simple grasping tasks using single-arm robots without mobility, 
+              or collect sensor data limited to a narrow scope of sensory inputs. 
+              As a result, these datasets often fail to encapsulate the intricate and dynamic nature of real-world tasks that bimanual-mobile robots are expected to perform. To address these limitations, we introduce <strong>BRMData</strong>, a <strong>B</strong>imanual-mobile <strong>R</strong>obot <strong>M</strong>anipulation <strong>Data</strong>set designed specifically for household applications. 
+              The dataset includes 10 diverse household tasks, ranging from simple single-arm manipulation to more complex dual-arm and mobile manipulations. 
+              It is collected using multi-view and depth-sensing data acquisition strategies. 
+              Human-robot interactions and multi-object manipulations are integrated into the task designs to closely simulate real-world household applications. 
+              Moreover, we present a Manipulation Efficiency Score (MES) metric to evaluate both the precision and efficiency of robot manipulation methods. 
+              BRMData aims to drive the development of versatile robot manipulation technologies, specifically focusing on advancing imitation learning methods from human demonstrations. 
+              The dataset is now open-sourced and available at <a href="https://embodiedrobot.github.io/" target="_blank">https://embodiedrobot.github.io/</a>, enhancing research and development efforts in the field of Embodied Manipulation.
             </div>
+            <img src="static/image/overview.jpg" alt="Descriptive Alt Text" style="width:100%; height:auto;">
         </div>
     </div>
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+          <h2>Tasks</h2>
+      </div>
+    </div> -->
 </div>
 </section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-2" style="text-align: center;">Autonomous Skills</h2>
+    <div class="columns is-centered">
+      <div class="column is-two-fifths content has-text-justified">
+        <video controls autoplay loop muted playsinline src="./asserts/bottle_pick.mp4" 
+        poster="./asserts/loading-icon.gif" 
+        style="border: 5px solid #bbb; border-radius: 20px; margin: 1.0%;"></video>
+        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Bottle Pick</strong></p>
+      </div>
+      <div class="column is-two-fifths is-centered has-text-centered">
+        <video controls autoplay loop muted playsinline src="./asserts/bottle_handoff.mp4" 
+        poster="./asserts/loading-icon.gif" 
+        style="border: 5px solid #bbb; border-radius: 20px; margin: 1.0%;"></video>
+        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Bottle Handoff</strong></p>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-two-fifths is-centered has-text-centered">
+        <video controls autoplay loop muted playsinline src="./asserts/plate_place.mp4" 
+        poster="./asserts/loading-icon.gif" 
+        style="border: 5px solid #bbb; border-radius: 20px; margin: 1.0%;"></video>
+        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Plate Place</strong></p>
+      </div>
+      <div class="column is-two-fifths is-centered has-text-centered">
+        <video controls autoplay loop muted playsinline src="./asserts/cup_place.mp4" 
+        poster="./asserts/loading-icon.gif" 
+        style="border: 5px solid #bbb; border-radius: 20px; margin: 1.0%;"></video>
+        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Cup Place</strong></p>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-two-fifths is-centered has-text-centered">
+        <video controls autoplay loop muted playsinline src="./asserts/fruit_handover.mp4" 
+        poster="./asserts/loading-icon.gif" 
+        style="border: 5px solid #bbb; border-radius: 20px; margin: 1.0%;"></video>
+        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Fruit Handover</strong></p>
+      </div>
+      <div class="column is-two-fifths is-centered has-text-centered">
+        <video controls autoplay loop muted playsinline src="./asserts/wine_wipe.mp4" 
+        poster="./asserts/loading-icon.gif" 
+        style="border: 5px solid #bbb; border-radius: 20px; margin: 1.0%;"></video>
+        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Wine Wipe</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-2" style="text-align: center;">Failures</h2>
+    <div class="columns is-centered">
+      <div class="column is-three-fifths is-centered has-text-centered">
+        <p>Throughout our journey of co-developing hardware and software/AI systems, we have encountered and documented various robot failures. Specifically, we have conducted experiments using the BRMData dataset, during which we observed and analyzed several instances of failure. These documented failures provide critical insights into the challenges and limitations inherent in the integration of robotic hardware and AI technologies. </p>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-three-fifths is-centered has-text-centered">
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/t94H8zZcKzs?si=RU8Kgo7ycTXAsE3p" 
+          title="Bimanual-mobile robot manipulation failures" frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p><strong>To access the <a href="http://box.jd.com/sharedInfo/1147DC284DDAEE91DC759E209F58DD60" target="_blank">official dataset</a>, please refer to the access password provided in the research paper.</strong></p>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

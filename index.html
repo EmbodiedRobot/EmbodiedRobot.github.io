@@ -84,7 +84,8 @@
 <body>
 
 
-<section class="section">
+
+<section class="section" id="Title">
   <div class="container is-max-desktop">
     <div class="content">
       <!-- <div class="columns is-centered"> -->
@@ -131,7 +132,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="News">
   <div class="container">
     <div class="content">
       <h2 class="title is-4" style="text-align: center;">News</h2>
@@ -201,15 +202,17 @@
 </section>
 
 
-<section class="section">
+<section class="section" id="Abstract">
 <div class="container is-max-desktop">
 <div class="content">
     <!-- Using HTML to center the abstract -->
     <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
+        <!-- <div class="column is-four-fifths"> -->
+        <div class="column" style="width: 85%;">
             <!-- <h2>Abstract</h2> -->
             <h2 class="title is-2" style="text-align: center;">Abstract</h2>
-            <div class="content has-text-justified">
+            <!-- <div class="content has-text-justified"> -->
+            <div class="content has-text-justified" style="background-color: #f5f5f5; padding: 1.5em; border-radius: 5px;">
               The advancements in embodied AI are increasingly enabling robots to tackle complex real-world tasks, such as household manipulation. 
               However, the deployment of robots in these environments remains constrained by the lack of comprehensive bimanual-mobile robot manipulation data that can be learned.
               Existing datasets predominantly focus on single-arm manipulation tasks, while the few dual-arm datasets available often lack mobility features, 
@@ -233,7 +236,7 @@
 </div>
 </section>
 
-<section class="section">
+<section class="section" id="AutonomousSkills">
   <div class="container">
     <h2 class="title is-2" style="text-align: center;">Autonomous Skills</h2>
     <div class="columns is-centered">
@@ -353,7 +356,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="Failures">
   <div class="container">
     <h2 class="title is-2" style="text-align: center;">Failures</h2>
     <div class="columns is-centered">
@@ -385,6 +388,8 @@
 }</code></pre>
   </div>
 </section>
+
+
 
 <footer class="footer">
   <div class="container">

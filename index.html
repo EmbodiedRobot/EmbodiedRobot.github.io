@@ -1,403 +1,154 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="description"
-        content="Empowering Embodied Manipulation: A Bimanual-Mobile Robot Manipulation Dataset for Household Tasks">
-  <meta name="keywords" content="robot manipulation, Embodied AI">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Empowering Embodied Manipulation: A Bimanual-Mobile Robot Manipulation Dataset for Household Tasks</title>
-
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-  <link rel="stylesheet" href="./static/css/bulma.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="stylesheet" href="./static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/index.js"></script>
-
-  <!-- MathJax -->
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-        displayMath: [ ['$$', '$$'], ['\\[', '\\]'] ],
-        processEscapes: true, 
-        tags: 'all',
-      },
-      svg: {
-        fontCache: 'global'
-      }
-    };
-  </script>
-  <script
-    type="text/javascript" id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-  </script>
-
-  <style>
-  .custom-button {
-    background-color: black;
-    color: white;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    margin-right: 10px; /* 调整按钮之间的间距 */
-    border-radius: 30px;
-    overflow: hidden; /* 确保内容不会溢出 */
-  }
-
-  .custom-button .button-logo {
-    width: 30px; /* 调整 logo 的宽度以适应按钮 */
-    height: auto;
-    margin-right: 10px; /* 调整 logo 与文本之间的间距 */
-    /* border-radius: 30px; */
-    border-radius: 50%; /* 确保 logo 是圆的 */
-    object-fit: contain; /* 确保图片在其容器内适当缩放 */
-  }
-
-  .video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000;
-    border: 5px solid #bbb;
-    border-radius: 20px;
-    margin: 0 auto; /* Center the video container */
-  }
-
-  .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  </style>
-  
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JD Explore Academy – VLA Lab</title>
+    <style>
+        /* CSS样式：采用专业化设计，使用Flexbox和Grid布局，确保响应式；背景统一浅灰，避免蓝色调，前景字体黑色优化 */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* 浅灰背景，类似于VLA模型中的背景噪声抑制，提升视觉和谐 */
+            color: #000000; /* 前景字体统一黑色，高对比度可读性 */
+        }
+        header {
+            background-color: #f5f5f5; /* 同步浅灰背景，避免蓝色 */
+            color: #000000; /* 字体黑色 */
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd; /* 添加轻边框以区分，类似于边缘检测 */
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: #000000; /* 导航链接黑色 */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .blog-post {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr 3fr; /* 图像与文本网格布局 */
+            gap: 20px;
+        }
+        .blog-post img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .post-content h2 {
+            margin-top: 0;
+        }
+        .post-meta {
+            color: #666; /* 元数据稍浅灰，但整体前景黑基调 */
+            font-size: 14px;
+        }
+        footer {
+            background-color: #f5f5f5; /* 底部同步浅灰背景，避免蓝色 */
+            color: #000000; /* 字体黑色 */
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd; /* 添加轻边框以区分 */
+        }
+        footer a {
+            color: #000000; /* 链接黑色 */
+        }
+        /* 响应式设计：媒体查询，类似于深度学习中的自适应层 */
+        @media (max-width: 768px) {
+            .blog-post {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-
-
-
-<section class="section" id="Title">
-  <div class="container is-max-desktop">
-    <div class="content">
-      <!-- <div class="columns is-centered"> -->
-        <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">Empowering Embodied Manipulation: A Bimanual-Mobile Robot Manipulation Dataset for Household Tasks</h1>
-          <div class="is-size-5 publication-authors">
-            <!-- <span class="author-block"><strong>JD Explore Academy</strong></span> -->
-            <p style="text-align: center; margin-top: 10px; font-size: 30px;"><strong><a href="https://www.jdcloud.com/cn/explore"  target="_blank">JD Explore Academy</a></strong></p>
-          </div>
-          <!-- <div class="is-size-5 publication-authors">
-            <img src="asserts/jdlogo.png" alt="Stanford University" style="width: 250px; height: auto; margin-top: 20px;">
-          </div> -->
-          <div class="buttons are-medium is-centered" style="margin-top: 20px;">
-            <a href="http://box.jd.com/sharedInfo/1147DC284DDAEE91DC759E209F58DD60" class="button custom-button">
-              <img src="asserts/datasetlogo.png" alt="Logo" class="button-logo">
-              Datasets
-            </a>
-            <a href="https://www.jdcloud.com/cn/pages/explore-JDManiData?hideHeader=true" class="button custom-button">
-              <img src="asserts/homelogo.png" alt="Logo" class="button-logo">
-              Home
-            </a>
-            <a href="https://arxiv.org/pdf/2405.18860" class="button custom-button">
-              <img src="asserts/paperlogo.png" alt="Logo" class="button-logo">
-              Paper
-            </a>
-            <a href="https://github.com/Louis-ZhangLe/BRMData" class="button custom-button">
-              <img src="asserts/codelogo.png" alt="Logo" class="button-logo">
-              Code
-            </a>
-            <a href="./LICENSE" class="button custom-button">
-              <img src="asserts/paperlogo.png" alt="Logo" class="button-logo">
-              License
-            </a>
-          </div>   
-          <div class="content has-text-justified" style="display: flex; justify-content: center;">
-            <iframe width="1105" height="383" src="https://www.youtube.com/embed/SE_3k2bqQ9o" 
-              title="Empowering Embodied Manipulation: A Bimanual-Mobile Robot Manipulation Dataset for Household Tasks" 
-              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>            
-        </div>
-      <!-- </div> -->
-    </div>
-  </div>
-</section>
-
-<section class="section" id="News">
-  <div class="container">
-    <div class="content">
-      <h2 class="title is-4" style="text-align: center;">News</h2>
-      <div class="columns is-centered">
-        <div class="column is-full">
-          <p style="text-align: center;"><span style="font-weight:bold;">&#8226; 2024/08:</span> We have collected data for 5 new manipulation tasks.</p>
-          <div class="columns is-multiline is-centered">
-            <div class="column is-one-third">
-              <div class="video-container" style="width: 350px; margin: 0 auto;">
-                <iframe src="https://www.youtube.com/embed/q7uKNw7GFIA" 
-                  title="New Task 1" 
-                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  referrerpolicy="strict-origin-when-cross-origin" 
-                  allowfullscreen></iframe>
-              </div>
-              <p style="text-align: center; margin-top: 10px; font-size: 18px;"><strong>Play with a Rubik's Cube</strong></p>
+    <header>
+        <div class="logo">JD Explore Academy – VLA Lab</div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">Home</a></li>
+                <!-- <li><a href="/blog">Blog</a></li>
+                <li><a href="/join-us">Join Us</a></li>
+                <li><a href="/contact">Contact</a></li> -->
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Blog</h1>
+        <p>We are bringing general Embodied AI into the physical world.</p>
+        
+        <!-- Blog posts list: Updated based on retrieved data, akin to sequence generation and multimodal fusion in large language models -->
+        <div class="blog-post">
+            <img src="https://embodiedrobot.github.io/static/image/overview.jpg" alt="BRMData Dataset">
+            <div class="post-content">
+                <h2><a href="./BRMData.html">BRMData: A Bimanual-Mobile Robot Manipulation Dataset for Household Tasks</a></h2>
+                <div class="post-meta">2024</div>
+                <p>BRMData is a Bimanual-mobile Robot Manipulation Dataset designed for household applications, featuring 10 diverse tasks including single-arm and dual-arm, tabletop, and mobile manipulations. It includes multi-view and depth-sensing data, with tasks ranging from single-object to multi-object grasping, non-interactive to human-robot interactive scenarios, and rigid to flexible-object manipulation. A novel Manipulation Efficiency Score (MES) metric is introduced to evaluate the precision and efficiency of robot manipulation methods.</p>
             </div>
-            <div class="column is-one-third">
-              <div class="video-container" style="width: 350px; margin: 0 auto;">
-                <iframe src="https://www.youtube.com/embed/zXy3udm9QpQ" 
-                  title="New Task 2" 
-                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  referrerpolicy="strict-origin-when-cross-origin" 
-                  allowfullscreen></iframe>
-              </div>
-              <p style="text-align: center; margin-top: 10px; font-size: 18px;"><strong>Get a cup of hot water</strong></p>
+        </div>
+        
+        <div class="blog-post">
+            <img src="https://yihanghku.github.io/OFA/asserts/overview.jpg" alt="Object-Focus Actor">
+            <div class="post-content">
+                <h2><a href="https://yihanghku.github.io/OFA/">Object-Focus Actor for Data-efficient Robot Generalization Dexterous Manipulation</a></h2>
+                <div class="post-meta">2025</div>
+                <p>The Object-Focus Actor (OFA) introduces a data-efficient approach for generalized dexterous robot manipulation, addressing limitations in generalization across diverse scenes and object placements. It employs a hierarchical pipeline including object perception and pose estimation, pre-manipulation pose arrival, and object-focus policy learning, leveraging consistent end trajectories for efficient policy training. Real-world experiments across seven tasks demonstrate superior performance in positional and background generalization, achieving robust results with only 10 demonstrations.</p>
             </div>
-          </div>
-          <div class="columns is-multiline is-centered">
-            <div class="column is-one-third">
-              <div class="video-container" style="width: 350px; margin: 0 auto;">
-                <iframe src="https://www.youtube.com/embed/vaWyHdszKqU" 
-                  title="New Task 1" 
-                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  referrerpolicy="strict-origin-when-cross-origin" 
-                  allowfullscreen></iframe>
-              </div>
-              <p style="text-align: center; margin-top: 10px; font-size: 18px;"><strong>Charge the iPhone</strong></p>
+        </div>
+        
+        <div class="blog-post">
+            <img src="https://via.placeholder.com/300x200?text=JDVLA-Align" alt="JDVLA-Align Representation Learning">
+            <div class="post-content">
+                <h2>JDVLA-Align: Enhancing Visual Language Action Representation Learning</h2>
+                <div class="post-meta">August 12, 2025</div>
+                <p>JDVLA-Align enhances visual-language-action (VLA) representation learning by leveraging pre-trained CLIP models for aligning vision and language, extracting task-relevant visual representations to improve 3D spatial understanding in VLA models. This approach supports robot generalization based on language instructions through early fusion mechanisms for representation augmentation.</p>
             </div>
-            <div class="column is-one-third">
-              <div class="video-container" style="width: 350px; margin: 0 auto;">
-                <iframe src="https://www.youtube.com/embed/Uzjf-ckn4io" 
-                  title="New Task 2" 
-                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  referrerpolicy="strict-origin-when-cross-origin" 
-                  allowfullscreen></iframe>
-              </div>
-              <p style="text-align: center; margin-top: 10px; font-size: 18px;"><strong>Hand a cup of tea to a person.</strong></p>
+        </div>
+        
+        <div class="blog-post">
+            <img src="https://via.placeholder.com/300x200?text=JDVLA-RL" alt="JDVLA-RL Manipulation">
+            <div class="post-content">
+                <h2>JDVLA-RL: Towards General Robotic Manipulation with Reinforcement Learning</h2>
+                <div class="post-meta">May 24, 2025</div>
+                <p>JDVLA-RL is an algorithmic framework that utilizes online reinforcement learning (RL) to refine pre-trained autoregressive VLA models, enabling scalable general robotic manipulation. It improves task completion alignment and dynamic skill acquisition through RL fine-tuning.</p>
             </div>
-          </div>
-          <div class="columns is-multiline is-centered">
-            <div class="column is-one-third">
-              <div class="video-container" style="margin: 0 auto;">
-                <iframe src="https://www.youtube.com/embed/MSbsHKh8gZY" 
-                  title="Video 3" 
-                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                  referrerpolicy="strict-origin-when-cross-origin" 
-                  allowfullscreen></iframe>
-              </div>
-              <p style="text-align: center; margin-top: 10px; font-size: 18px;"><strong>Pick up a cup and place a tea bag inside</strong></p>
+        </div>
+        
+        <div class="blog-post">
+            <img src="https://via.placeholder.com/300x200?text=JDVLA-Human" alt="JDVLA-Human Learning">
+            <div class="post-content">
+                <h2>JDVLA-Human: Learning from Human Video</h2>
+                <div class="post-meta">July 16, 2025</div>
+                <p>JDVLA-Human trains VLA models from egocentric human videos, predicting wrist and hand actions which are then converted to robot motions via inverse kinematics and retargeting. This supports large-scale learning from human videos with dynamic pose estimation.</p>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </main>
 
-
-<section class="section" id="Abstract">
-<div class="container is-max-desktop">
-<div class="content">
-    <!-- Using HTML to center the abstract -->
-    <div class="columns is-centered has-text-centered">
-        <!-- <div class="column is-four-fifths"> -->
-        <div class="column" style="width: 85%;">
-            <!-- <h2>Abstract</h2> -->
-            <h2 class="title is-2" style="text-align: center;">Abstract</h2>
-            <!-- <div class="content has-text-justified"> -->
-            <div class="content has-text-justified" style="background-color: #f5f5f5; padding: 1.5em; border-radius: 5px;">
-              The advancements in embodied AI are increasingly enabling robots to tackle complex real-world tasks, such as household manipulation. 
-              However, the deployment of robots in these environments remains constrained by the lack of comprehensive bimanual-mobile robot manipulation data that can be learned.
-              Existing datasets predominantly focus on single-arm manipulation tasks, while the few dual-arm datasets available often lack mobility features, 
-              task diversity, comprehensive sensor data, and robust evaluation metrics; they fail to capture the intricate and dynamic nature of household manipulation tasks 
-              that bimanual-mobile robots are expected to perform. To overcome these limitations, we propose <strong>BRMData</strong>, a <strong>B</strong>imanual-mobile <strong>R</strong>obot <strong>M</strong>anipulation <strong>Data</strong>set
-              specifically designed for household applications. BRMData encompasses 10 diverse household tasks, including single-arm and dual-arm tasks, as well as both tabletop and mobile manipulations, 
-              utilizing multi-view and depth-sensing data information. Moreover, BRMData features tasks of increasing difficulty, ranging from single-object to multi-object grasping, 
-              non-interactive to human-robot interactive scenarios, and rigid-object to flexible-object manipulation, closely simulating real-world household applications. 
-              Additionally, we introduce a novel Manipulation Efficiency Score (MES) metric to evaluate both the precision and efficiency of robot manipulation methods in household tasks. 
-              We thoroughly evaluate and analyze the performance of advanced robot manipulation learning methods using our BRMData, 
-              aiming to drive the development of bimanual-mobile robot manipulation technologies. 
-            </div>
-            <img src="static/image/overview.jpg" alt="Descriptive Alt Text" style="width:100%; height:auto;">
-        </div>
-    </div>
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-          <h2>Tasks</h2>
-      </div>
-    </div> -->
-</div>
-</section>
-
-<section class="section" id="AutonomousSkills">
-  <div class="container">
-    <h2 class="title is-2" style="text-align: center;">Autonomous Skills</h2>
-    <div class="columns is-centered">
-      <div class="column is-two-fifths content has-text-justified" style="text-align: center;">
-        <div class="video-container" style="margin: 0 auto;">
-          <iframe src="https://www.youtube.com/embed/Tjs-BZ0Ns_s" 
-            title="Bottle Pick" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen></iframe>
-        </div>
-        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Bottle Pick</strong></p>
-      </div>
-      <div class="column is-two-fifths is-centered has-text-centered" style="text-align: center;">
-        <div class="video-container" style="margin: 0 auto;">
-          <iframe src="https://www.youtube.com/embed/MCbnS6unf8Y" 
-            title="Bottle Handoff" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen></iframe>
-        </div>
-        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Bottle Handoff</strong></p>
-      </div>
-    </div>
-    <!-- ########################################## Plate Place Cup Place -->
-    <div class="columns is-centered">
-      <div class="column is-two-fifths content has-text-justified" style="text-align: center;">
-        <div class="video-container" style="margin: 0 auto;">
-          <iframe src="https://www.youtube.com/embed/gzzBz7Wg5tU" 
-            title="Plate Place" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen></iframe>
-        </div>
-        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Plate Place</strong></p>
-      </div>
-      <div class="column is-two-fifths is-centered has-text-centered" style="text-align: center;">
-        <div class="video-container" style="margin: 0 auto;">
-          <iframe src="https://www.youtube.com/embed/rxDzH9_bSC0" 
-            title="Cup Place" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen></iframe>
-        </div>
-        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Cup Place</strong></p>
-      </div>
-    </div>
-    <!-- ########################################## Fruit Handover Wine Wipe -->
-    <div class="columns is-centered">
-      <div class="column is-two-fifths content has-text-justified" style="text-align: center;">
-        <div class="video-container" style="margin: 0 auto;">
-          <iframe src="https://www.youtube.com/embed/Nr_M9sHerIg" 
-            title="Fruit Handover" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen></iframe>
-        </div>
-        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Fruit Handover</strong></p>
-      </div>
-      <div class="column is-two-fifths is-centered has-text-centered" style="text-align: center;">
-        <div class="video-container" style="margin: 0 auto;">
-          <iframe src="https://www.youtube.com/embed/kUjOKY-cq1I" 
-            title="Wine Wipe" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen></iframe>
-        </div>
-        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Wine Wipe</strong></p>
-      </div>
-    </div>
-    <!-- ########################################## Single Fruit Pick Multiple Fruits Pick -->
-    <div class="columns is-centered">
-      <div class="column is-two-fifths is-centered has-text-centered" style="text-align: center;">
-        <div class="video-container" style="margin: 0 auto;">
-          <iframe src="https://www.youtube.com/embed/K4sa7_czvuQ" 
-            title="Single Fruit Pick" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen></iframe>
-        </div>
-        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Single Fruit Pick</strong></p>
-      </div>
-      <div class="column is-two-fifths is-centered has-text-centered" style="text-align: center;">
-        <div class="video-container" style="margin: 0 auto;">
-          <iframe src="https://www.youtube.com/embed/x8J-1EkF9_Q" 
-            title="Multiple Fruits Pick" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen></iframe>
-        </div>
-        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Multiple Fruits Pick</strong></p>
-      </div>
-    </div>
-    <!-- ########################################## High Five / Garbage Recycle -->
-    <div class="columns is-centered">
-      <div class="column is-two-fifths is-centered has-text-centered" style="text-align: center;">
-        <div class="video-container" style="margin: 0 auto;">
-          <iframe src="https://www.youtube.com/embed/Cfwq_9ECm9E" 
-            title="High Five" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen></iframe>
-        </div>
-        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>High Five</strong></p>
-      </div>
-      <div class="column is-two-fifths is-centered has-text-centered" style="text-align: center;">
-        <div class="video-container" style="margin: 0 auto;">
-          <iframe src="https://www.youtube.com/embed/-9PpBEsHids" 
-            title="Garbage Recycle" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen></iframe>
-        </div>
-        <p style="text-align: center; margin-top: 10px; font-size: 24px;"><strong>Garbage Recycle</strong></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="Failures">
-  <div class="container">
-    <h2 class="title is-2" style="text-align: center;">Failures</h2>
-    <div class="columns is-centered">
-      <div class="column is-three-fifths is-centered has-text-centered">
-        <p>Using the BRMData dataset, we have observed several instances of failure. These documented failures provide critical insights into the challenges and limitations inherent in integrating robotic hardware and Embodied AI technologies.</p>
-      </div>
-    </div>
-    <div class="columns is-centered">
-      <div class="column is-three-fifths is-centered has-text-centered">
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/t94H8zZcKzs?si=RU8Kgo7ycTXAsE3p" 
-          title="Bimanual-mobile robot manipulation failures" frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="BibTeX">
-  <div class="container content">
-    <h2 class="titile">BibTeX</h2>
-    <pre><code>@inproceedings{zhang2024empowering,
-  author    = {Zhang, Tianle and Li, Dongjiang and Li, Yihang and Zeng, Zecui and Zhao, Lin and Sun, Lei and Chen, Yue and Wei, Xuelong and Zhan, Yibing and Li, Lusong and He, Xiaodong},
-  title     = {Empowering Embodied Manipulation: A Bimanual-Mobile Robot Manipulation Dataset for Household Tasks},
-  booktitle = {arXiv},
-  year      = {2024},
-}</code></pre>
-  </div>
-</section>
-
-
-
-<footer class="footer">
-  <div class="container">
-    <div class="content has-text-centered">
-      <p><strong>To access the <a href="http://box.jd.com/sharedInfo/1147DC284DDAEE91DC759E209F58DD60" target="_blank">official dataset</a>, please refer to the access password provided in the research paper.</strong></p>
-    </div>
-  </div>
-</footer>
-
+    <!-- <footer>
+        <p>© 2025 Physical Intelligence. All rights reserved. | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+        <p>Contact: research@physicalintelligence.company</p>
+    </footer> -->
 </body>
 </html>
